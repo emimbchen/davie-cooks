@@ -1,0 +1,2 @@
+127.0.0.1 - - [17/Apr/2020:00:25:33 +0000] "POST /wp-cron.php?doing_wp_cron=1587083133.2434511184692382812500 HTTP/1.1" 200 31 "http://daviecooks.dev/wp-cron.php?doing_wp_cron=1587083133.2434511184692382812500" "WordPress/5.4; http://daviecooks.dev"
+127.0.0.1 - - [17/Apr/2020:00:25:33 +0000] "GET /2020/04/17/hello-world/ HTTP/1.1" 200 8425 "http://daviecooks.dev/2020/04/17/hello-world/" "WordPress/5.4; http://daviecooks.dev"

@@ -1,0 +1,75 @@
+/********************************
+	BREAKPOINTS
+********************************/
+$small: 350px;
+$mobile-small: 500px;
+$mobile: 768px;
+$tablet: 1024px;
+$medium-screens: 1200px;
+$large-screens: 1400px;
+
+
+/********************************
+	COLORS
+********************************/
+$white: #FFFFFF;
+$black: #000000;
+
+
+/********************************
+	FONTS
+********************************/
+$font_heading: 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
+$font_body: Helvetica, Arial, sans-serif;
+$font_awesome: 'Font Awesome 5 Pro', sans-serif;
+
+$em-base: 16; /* Henseforth known as 1em  |  used for em() mixin */
+$base-font-size: #{$em-base}px;
+
+// Font Awesome
+// set in ./src/sass/library/__library-overwrites.scss
+
+/********************************
+	WEIGHTS
+********************************/
+$light: 300;
+$normal: 400;
+$semibold: 500;
+$bold: 700;
+
+
+/********************************
+	Z-INDEX
+********************************/
+$z_below: -1;
+$z_default: 1;
+
+$z_low: 10;
+$z_med: 20;
+$z_high: 30;
+$z_overlay: 100;
+$z_max: 1000;
+
+
+/********************************
+    WIDTHS, HEIGHTS, SPACING
+********************************/
+
+/*** CONTAINER VARS ***/
+// Creates a content container with built-in padding so your content is always off the edge of the window in a centrally controlled location
+$site_container: 1280px; // the max width of the content, not including padding 
+// Global content padding from container 
+$site_container_padding: 30px; // Desktop
+$site_container_padding_mobile: 5%; // Mobile (rec: percentage)
+// Define container using calc - allows for easy changes to individual container elements
+$container: calc(#{$site_container} + (#{$site_container_padding} * 2)); // Desktop
+$container_mobile: calc(#{$site_container} + (#{$site_container_padding_mobile} * 2)); // Mobile
+
+
+/*** HEADER ***/
+$header_height: 75px;
+$header_height_mobile: 100px;
+
+
+
+

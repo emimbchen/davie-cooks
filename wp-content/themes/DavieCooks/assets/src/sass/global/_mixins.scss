@@ -1,0 +1,95 @@
+// Placeholder text styles
+// makes input placeholder text the specified color then makes it disappear on focus
+// to use put "@include input-placeholder([hex code or variable for color])" on any input
+// for example: @include input-placeholder(#c5c5c5);
+@mixin input-placeholder($color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+  }
+  &:-moz-placeholder {
+    color: $color;
+  }
+  &::-moz-placeholder {
+    color: $color;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+  }
+  // clear placeholder on focus
+  &:focus::-webkit-input-placeholder { color:transparent; }
+  &:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+  &:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+  &:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+}
+
+
+// Clearfix 
+// makes a parent div expand to wrap all floated elements
+// to use, add "@include clearfix" to a container
+@mixin clearfix { 
+  &:after {
+    content: ''; 
+    clear: both;
+    visibility: hidden; 
+    display: block; 
+    font-size: 0;  
+    height: 0;
+  }
+}
+
+
+// Accessibility tool
+// hides element from layout, but allows for screen readers to focus and read
+@mixin sr_only(){
+  position: absolute !important;
+  clip: rect(1px 1px 1px 1px); /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  padding: 0 !important;
+  border: 0 !important;
+  height: 1px !important;
+  width: 1px !important;
+  overflow: hidden;
+  word-wrap: normal !important; /* Many screen reader and browser combinations announce broken words as they would appear visually. */
+}
+
+
+// Stretch Children
+// makes all child divs stretch to the same height, for Safari/IE depends on parent container having a set height
+// to use, add "@include stretchChildren" to the parent element
+@mixin stretchChildren {
+  display:flex;
+  flex-wrap:wrap;
+  align-items:stretch;
+}
+
+
+// Background sizing mixin
+@mixin background-size($size: 'cover'){
+  background-size: $size;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+
+
+// CSS Gradient tools
+@mixin gradient($topColor, $bottomColor) {
+    background: -webkit-linear-gradient($topColor, $bottomColor);
+    background: -moz-linear-gradient($topColor, $bottomColor);
+    background: -ms-linear-gradient($topColor, $bottomColor);
+    background: -o-linear-gradient($topColor, $bottomColor);
+    background: linear-gradient($topColor, $bottomColor);
+}
+
+
+// for gradients with more color spans
+// also used for hard stop gradients for full width color columns
+@mixin advGradient($direction, $firstColor, $firstDistance, $secondColor, $secondDistance, $thirdColor, $thirdDistance, $fourthColor, $fourthDistance) {
+    background: -webkit-linear-gradient($direction, $firstColor $firstDistance, $secondColor $secondDistance, $thirdColor $thirdDistance, $fourthColor $fourthDistance);
+    background: -moz-linear-gradient($direction, $firstColor $firstDistance, $secondColor $secondDistance, $thirdColor $thirdDistance, $fourthColor $fourthDistance);
+    background: -ms-linear-gradient($direction, $firstColor $firstDistance, $secondColor $secondDistance, $thirdColor $thirdDistance, $fourthColor $fourthDistance);
+    background: -o-linear-gradient($direction, $firstColor $firstDistance, $secondColor $secondDistance, $thirdColor $thirdDistance, $fourthColor $fourthDistance);
+    background: linear-gradient($direction, $firstColor $firstDistance, $secondColor $secondDistance, $thirdColor $thirdDistance, $fourthColor $fourthDistance);
+}
+
+

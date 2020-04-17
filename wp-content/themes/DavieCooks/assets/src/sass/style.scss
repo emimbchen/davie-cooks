@@ -1,0 +1,26 @@
+/*
+Theme Name:
+Author:
+Author URI:
+Text Domain:
+*/
+
+// libraries and dependencies
+@import 'vendor/__vendor-overwrites'; // theme custom file - edit as needed
+@import 'vendor/_normalize';
+@import "vendor/fontawesome/fontawesome";
+@import "vendor/fontawesome/brands";
+@import "vendor/fontawesome/light";
+@import "vendor/fontawesome/regular";
+@import "vendor/fontawesome/solid";
+
+
+// global and utilties
+@import 'global/_variables';
+@import 'global/_fonts';
+@import 'global/_mixins';
+@import 'global/_global';
+
+
+// components and layouts
+@import 'layout/_homepage';

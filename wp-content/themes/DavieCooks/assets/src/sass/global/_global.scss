@@ -1,0 +1,82 @@
+/*************************************************************
+   * GENERAL
+*************************************************************/
+
+// fonts and headings are set in "_fonts.scss"
+
+* {
+	box-sizing: border-box;
+}
+
+html, body {
+	@include default-font;
+}
+
+.container{
+	position:relative;
+	max-width:$container;
+	padding:0 $site_container_padding;
+	margin:0 auto;
+
+	@media (max-width:$mobile) {
+		max-width:$container_mobile;
+		padding:0 $site_container_padding_mobile;
+	}
+}
+
+.skip-link {
+    position: absolute;
+    top: -50px;
+}
+
+
+/********************************
+	* UTILITY
+********************************/
+.clearfix {
+	@include clearfix();
+}
+
+.accessibility,
+.sr_only{
+	@include sr_only();
+}
+
+.scroll--lock{
+	overflow:hidden;
+}
+
+
+
+/********************************
+	* LAYOUT
+********************************/
+// disable tel links on desktop
+a[href^="tel:"] {
+	@media (min-width: $tablet) {
+		pointer-events: none;
+	}
+}
+
+.background-cover {
+	@include background-size('cover');
+}
+
+.background-contain {
+	@include background-size('contain');
+}
+
+.bullet-list {
+	list-style: outside disc;
+	padding-left: 30px;
+}
+
+.number-list {
+	list-style: outside decimal;
+	padding-left: 30px;
+	margin: 0;
+}
+
+
+
+
