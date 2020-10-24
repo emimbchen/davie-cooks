@@ -11,6 +11,17 @@
 html, body {
 	@include default-font;
 }
+body > .wrapper{
+	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+}
+.main{
+	margin-bottom: 40px;
+}
+footer{
+	align-self: baseline;
+}
 
 .container{
 	position:relative;
@@ -46,6 +57,24 @@ html, body {
 	overflow:hidden;
 }
 
+.hidden{
+	display: none;
+}
+
+.desktop{
+	display: block;
+	@media(max-width: $mobile){
+		display: none;
+	}
+}
+
+.mobile{
+	display: none;
+	@media(max-width: $mobile){
+		display: block;
+	}
+}
+
 
 
 /********************************
@@ -77,6 +106,31 @@ a[href^="tel:"] {
 	margin: 0;
 }
 
+.title{
+	text-align: center;
+	h1{
+	   @include h1border;
+	}
+}
+
+blockquote{
+	margin: 20px 0;
+	border-top: 4px solid $yellow;
+	border-bottom: 4px solid $yellow;
+	p{
+		margin-bottom: 20px;
+	}
+	cite{
+		margin-bottom: 60px;
+		&:before{
+			content: '—';
+			color: $yellow;
+		}
+	}
+}
+.wp-block-button__link{
+	@include glow;
+}
 
 
 

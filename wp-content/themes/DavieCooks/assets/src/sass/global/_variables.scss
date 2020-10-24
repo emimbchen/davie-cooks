@@ -14,12 +14,18 @@ $large-screens: 1400px;
 ********************************/
 $white: #FFFFFF;
 $black: #000000;
+$navy: #293462;
+$turquoise: #00818a;
+$orange: #ec9b3b;
+$yellow: #f7be16;
 
 
 /********************************
 	FONTS
 ********************************/
-$font_heading: 'Georgia', 'Cambria', 'Times New Roman', 'Times', serif;
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+$font_heading: 'Roboto', sans-serif;
 $font_body: Helvetica, Arial, sans-serif;
 $font_awesome: 'Font Awesome 5 Pro', sans-serif;
 
@@ -67,7 +73,7 @@ $container_mobile: calc(#{$site_container} + (#{$site_container_padding_mobile} 
 
 
 /*** HEADER ***/
-$header_height: 75px;
+$header_height: 85px;
 $header_height_mobile: 100px;
 
 

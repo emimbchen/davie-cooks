@@ -1,0 +1,148 @@
+.recipe{
+    margin-bottom: 40px;
+    .container{
+        @include clearfix;
+    }
+    .hero{
+        $self: &;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        overflow: hidden;
+        &__content{
+            background: rgba($white, .9);
+            border-radius: 30px 0;
+            padding: 30px;
+            margin: 90px 90px 90px 0;
+            max-width: 500px;
+            text-align: center;
+            @media(max-width: $mobile){
+                max-width: 100%;
+                margin: 90px auto;
+            }
+            h1{
+                margin-bottom:.5em;
+            }
+            *{
+                color: $navy;
+            }
+        }
+        &__categories{
+            a{
+                text-decoration: none;
+                color: $turquoise;
+                text-transform: uppercase;
+                &:before{
+                    content: ', ';
+                    display: inline;
+                    margin-left: -2px;
+                }
+                &:first-of-type:before{
+                    content: '';
+                    margin-left:0;
+                }
+            }
+        }
+        &__author{
+            margin-bottom: 1em;
+            font-weight: bold;
+        }
+    }
+    &__main{
+        display: flex;
+        justify-content: space-between;
+        @media(max-width: $mobile){
+            flex-direction: column;
+        }
+        h2{
+            border-bottom: 2px solid $yellow;
+            margin-bottom:0;
+            padding-bottom: .5em;
+            @media(max-width: $mobile){
+                border-bottom: 0;
+                @include miniUnderline;
+            }
+        }
+        ol, ul{
+            margin-top: 0;
+            padding-top: 20px;
+            padding-bottom: 20px;
+        }
+        li{
+            margin-bottom: 20px;
+        }
+        .ingredients{
+            width: 40%;
+            @media(max-width: $mobile){
+                width: 100%;
+            }
+        }
+        .directions{
+            width: 60%;
+            @media(max-width: $mobile){
+                width: 100%;
+            }
+            h2, ol{
+                padding-left: 30px;
+                @media(max-width: $mobile){
+                    padding-left: 0;
+                }
+            }
+            ol{
+                border-left: 2px solid $yellow;
+                @media(max-width: $mobile){
+                    border-left: 0;
+                    padding-left: 20px;
+
+                }
+            }
+        }
+
+    }
+    .stats{
+        display: flex;
+        justify-content: space-between;
+        margin: 1em 0;
+        padding: 1em 0;
+        @media(max-width: $mobile){
+            flex-wrap: wrap;
+        }
+        p{
+            display: flex;
+            flex: 1 1 auto;
+            justify-content: center;
+            @media(max-width: $mobile){
+                width: calc(50% - 20px);
+                margin: 10px;
+                justify-content: end;
+            }      
+        }
+        span{
+            text-transform: uppercase;
+            color: $navy;
+            font-weight: bold;
+            margin-right: 10px;
+            @media(max-width: $mobile){
+                color: $yellow;
+            }
+        }
+        p + p {
+            border-left: solid 2px $yellow;
+            @media(max-width: $mobile){
+                border-left: 0;
+            }
+        } 
+    }
+    .notes{
+        h2{
+            color: $navy;
+            text-transform: uppercase;
+            @include miniUnderline;
+        }
+    }
+    .btn_wrap{
+        text-align: center;
+        margin: 40px;
+    }
+
+}

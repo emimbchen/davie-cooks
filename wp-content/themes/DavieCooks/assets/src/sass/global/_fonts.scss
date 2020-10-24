@@ -30,7 +30,7 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
-@mixin default-font($color: $black) {
+@mixin default-font($color: $navy) {
 	@include font-appearance();
     font-family: $font_body;
     font-size: $base-font-size;
@@ -39,7 +39,7 @@
     color: $color;
 }
 
-@mixin default-anchor($color: $black, $hoverColor: $black) {
+@mixin default-anchor($color: $navy, $hoverColor: $navy) {
 	@include font-appearance();
     font-family: $font_body;
     font-size: inherit;
@@ -53,7 +53,7 @@
     }
 }
 
-@mixin default-heading($color: $black) {
+@mixin default-heading($color: $navy) {
 	@include font-appearance();
     font-family:$font_heading;
     font-weight: $bold;
@@ -65,7 +65,7 @@
 
 
 /***** HEADING MIXINS *****/
-@mixin h1($color: $black) {
+@mixin h1($color: $navy) {
     @include default-heading($color);
     font-size: 45px;
     margin: 0.15em 0 0.35em;
@@ -75,19 +75,41 @@
     }
 }
 
-@mixin h2($color: $black) {
+@mixin h1border($color: $navy){
     @include default-heading($color);
-    font-size: 36px;
-    margin: 0.15em 0 0.35em;
+    font-size: 45px;
+    display: inline-block;
+    text-transform: uppercase;
+    margin: 40px 0;
+    padding: 20px;
+    // outline: 2px solid $yellow;
+    position: relative;
+    // &:after{
+    //     content: '';
+    //     position: absolute;
+    //     top: -10px;
+    //     left: -10px;
+    //     bottom: -10px;
+    //     right: -10px;
+    //     border: 2px solid $yellow;
+    // }
+    @media screen and (max-width:$mobile){
+        font-size:40px;
+    }
+}
 
+@mixin h2($color: $navy) {
+    @include default-heading($color);
+    font-size: 30px;
+    margin: 0.5em 0 0.5em;
     @media screen and (max-width:$mobile){
         font-size:32px;
     }
 }
 
-@mixin h3($color: $black) {
+@mixin h3($color: $navy) {
     @include default-heading($color);
-    font-size: 32px;
+    font-size: 28px;
     margin: 0.1em 0 0.3em;
 
     @media screen and (max-width:$mobile){
@@ -95,9 +117,9 @@
     }
 }
 
-@mixin h4($color: $black) {
+@mixin h4($color: $navy) {
     @include default-heading($color);
-    font-size: 28px;
+    font-size: 21px;
     margin: 0.1em 0 0.3em;
 
     @media screen and (max-width:$mobile){
@@ -105,9 +127,9 @@
     }
 }
 
-@mixin h5($color: $black) {
+@mixin h5($color: $navy) {
     @include default-heading($color);
-    font-size: 21px;
+    font-size: 18px;
     margin: 0.05em 0 0.25em;
 
     @media screen and (max-width:$mobile){
@@ -115,9 +137,9 @@
     }
 }
 
-@mixin h6($color: $black) {
+@mixin h6($color: $navy) {
     @include default-heading($color);
-    font-size: 18px;
+    font-size: 16px;
     margin: 0.05em 0 0.25em;
 
     @media screen and (max-width:$mobile){
@@ -130,32 +152,32 @@
 /***** HEADING CLASSES *****/
 h1,
 .font--h1 {
-    @include h1($black);
+    @include h1($navy);
 }
 
 h2,
 .font--h2 {
-    @include h2($black);
+    @include h2($navy);
 }
 
 h3,
 .font--h3 {
-    @include h3($black);
+    @include h3($navy);
 }
 
 h4,
 .font--h4 {
-    @include h4($black);
+    @include h4($navy);
 }
 
 h5,
 .font--h5 {
-    @include h5($black);
+    @include h5($navy);
 }
 
 h6,
 .font--h6 {
-    @include h6($black);
+    @include h6($navy);
 }
 
 
@@ -168,7 +190,7 @@ h6,
 // Identify common text elements across your theme like section headings that you can create a mixin/class for
 
 /***** THEME MIXINS *****/
-@mixin subhead--one($color: $black) {
+@mixin subhead--one($color: $navy) {
     @include default-heading($color);
     font-size:11px;
     font-weight:$bold;
@@ -178,7 +200,7 @@ h6,
 }
 
 
-@mixin section__title($color: $black) {
+@mixin section__title($color: $navy) {
     @include h3($color);
     text-transform: uppercase;
     text-align:center;
@@ -191,13 +213,13 @@ h6,
 /***** THEME CLASSES *****/
 // SUBHEADS
 .subhead--one{
-    @include subhead--one($black);
+    @include subhead--one($navy);
 }
 
 
 // SECTION TITLES
 .section__title{
-    @include section__title($black);
+    @include section__title($navy);
 }
 
 
@@ -213,7 +235,7 @@ a,
 
 p,
 .font--p{
-    @include default-font($black);
+    @include default-font($navy);
     margin:0.1em 0 0.3em;
 }
 
@@ -265,7 +287,7 @@ blockquote > p {
     letter-spacing: 0.025em;
     font-size: 22px;
     line-height: 1.3;
-    color: $black;
+    color: $navy;
     @media screen and (max-width: $mobile) {
         margin: 30px 1em;
 		font-size: 21px;
@@ -274,7 +296,7 @@ blockquote > p {
 
 cite {
     display: block;
-    color: $black;
+    color: $navy;
     font-size: 65%;
     text-align: center;
     font-style: normal;

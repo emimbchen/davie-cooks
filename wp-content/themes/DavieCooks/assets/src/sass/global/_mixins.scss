@@ -92,4 +92,16 @@
     background: linear-gradient($direction, $firstColor $firstDistance, $secondColor $secondDistance, $thirdColor $thirdDistance, $fourthColor $fourthDistance);
 }
 
+//mini underline
+@mixin miniUnderline($color : $yellow){
+  &:after{
+    content: "";
+    width: 30px;
+    background: $color;
+    height: 3px;
+    display: block;
+    margin: 10px 0;
+}
+}
+
 

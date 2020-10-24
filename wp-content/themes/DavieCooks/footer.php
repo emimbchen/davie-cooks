@@ -7,7 +7,7 @@
             <footer>
             	<div class="container">
 	                <?php wp_footer(); ?>
-	                &copy;<?php echo date('Y'); ?>
+	                
                 </div>
             </footer>
 		</div> <!-- end .wrapper -->

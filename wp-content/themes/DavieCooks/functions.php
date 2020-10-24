@@ -89,34 +89,6 @@ function register_my_menus() {
 }
 add_action( 'init', 'register_my_menus' );
 
-/*************************************************************/
-/*  REGISTER SIDEBAR                    */
-/***********************************************************/
-
-function arphabet_widgets_init() {
-
-  register_sidebar( array(
-    'name'          => 'Sidebar One',
-    'id'            => 'sidebar_one',
-    'before_widget' => '<div class="widget">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-    'after_title'   => '</h2>',
-    'description'   => ''
-  ) );
-
-  register_sidebar( array(
-    'name'          => 'Sidebar Two',
-    'id'            => 'sidebar_two',
-    'before_widget' => '<div class="widget">',
-    'after_widget'  => '</div>',
-    'before_title'  => '<h2>',
-    'after_title'   => '</h2>',
-    'description'   => ''
-  ) );
-
-}
-add_action( 'widgets_init', 'arphabet_widgets_init' );
 
 /*************************************************************/
 /*  ADVANCED CUSTOM FIELDS 					 				 */
@@ -184,7 +156,6 @@ add_action('admin_menu', 'custom_menu_page_removing');
 /*************************************************************/
 /*  Adding color palette                						         */
 /*************************************************************/
-
 // to acf
 function kronos_acf_input_admin_footer()
 { ?>
@@ -192,7 +163,7 @@ function kronos_acf_input_admin_footer()
 
         (function ($) {
             acf.add_filter('color_picker_args', function (args, $field) {
-                args.palettes = ['#203569', '#038380', '#E8DFD8', "#009A66", "#EF8034", "#9FCBE1", "#AEBD37", "#EF3E42", "#F8DA34", "#977351", "#F3F3F3"];
+                args.palettes = ['#293462', '#00818a', '#ec9b3b', "#f7be16"];
                 return args;
             });
         })(jQuery);
@@ -248,18 +219,10 @@ function my_mce4_options($init)
         "FFFFFF", "White"
         ';
     $custom_colours = '
-        "203569", "Deep Blue",
-        "038380", "Island Turquoise",
-        "E8DFD8", "Stone",
-        "009A66", "Grande Green",
-        "EF8034", "Orange",
-        "9FCBE1", "Skye Blue",
-        "AEBD37", "Spring Green",
-        "EF3E42", "Grande Red",
-        "F8DA34", "Wild Lemon",
-        "977351", "Fertile Soil",
-        "F3F3F3", "Grey"
-
+        "293462", "Navy",
+        "00818a", "Turquoise",
+        "ec9b3b", "Orange",
+        "f7be16", "Yellow"
       ';
     $init['textcolor_map'] = '[' . $default_colours . ',' . $custom_colours . ']';
     $init['textcolor_rows'] = 6; // expand colour grid to 6 rows
@@ -268,3 +231,31 @@ function my_mce4_options($init)
 
 add_filter('tiny_mce_before_init', 'my_mce4_options');
 
+//add thumbnail support
+add_theme_support( 'post-thumbnails' );
+
+//add excerpt support
+function wpcodex_add_excerpt_support_for_pages() {
+    add_post_type_support( 'recipes', 'excerpt' );
+}
+add_action( 'init', 'wpcodex_add_excerpt_support_for_pages' );
+
+// init blocks
+add_action('acf/init', 'my_acf_init_block_types');
+function my_acf_init_block_types() {
+
+    // Check function exists.
+    if( function_exists('acf_register_block_type') ) {
+
+        // register a testimonial block.
+        acf_register_block_type(array(
+            'name'              => 'categories',
+            'title'             => __('Categories'),
+            'description'       => __('Category Listing'),
+            'render_template'   => 'template-parts/blocks/category/category.php',
+            'category'          => 'widgets',
+            'icon'              => 'columns',
+            'keywords'          => array( 'categories', 'category', 'blocks', 'listing' ),
+        ));
+    }
+}

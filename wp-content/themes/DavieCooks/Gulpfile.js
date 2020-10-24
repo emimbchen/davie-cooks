@@ -47,7 +47,7 @@ const config = {
     css: {
         sass: path_src + 'sass/style.scss',
         sass_comps: path_src + 'sass/**/*.scss',
-        vendor_src: path_src + 'vendor/css/**/*.css',
+        vendor_src: path_src + 'vendor/css/*.css',
         dist: path_dist + 'css/',
     },
     js: {

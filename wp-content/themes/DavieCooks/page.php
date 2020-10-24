@@ -7,18 +7,17 @@ get_header(); ?>
 
 <div class="main" id="main">
 	<div class="container">
-	
 		<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-	        <h1><?php the_title();?></h1>
-	        <?php the_content();?>
-
-		<?php endwhile; endif; ?>
-
-		<?php //get_template_part('template-parts/sidebar', 'one'); ?>
-		<?php //get_template_part('template-parts/sidebar', 'two'); ?>
-
+				<?php if(get_field('include_title') == true):?>
+					<div class="title">
+						<h1><?php the_title();?></h1>
+					</div>
+				<?php endif; ?>
+				<?php the_content();?>
+			<?php endwhile; 
+		endif; ?>
 	</div>
-</div> <!-- end div.main -->	
+</div> 
+<!-- end div.main -->	
 
 <?php get_footer(); ?>

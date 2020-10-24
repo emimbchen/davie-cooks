@@ -18,9 +18,21 @@ Text Domain:
 // global and utilties
 @import 'global/_variables';
 @import 'global/_fonts';
+@import 'global/_forms';
 @import 'global/_mixins';
+@import 'global/_buttons';
 @import 'global/_global';
 
 
+// shared
+@import 'shared/_header';
+@import 'shared/_footer';
+
 // components and layouts
+@import 'layout/_archive-recipes';
 @import 'layout/_homepage';
+@import 'layout/_search';
+@import 'layout/_single-recipes';
+
+//template-parts
+@import 'template-parts/category-block';
