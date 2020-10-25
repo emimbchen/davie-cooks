@@ -5,17 +5,12 @@
 
 get_header(); 
 
-$backgroundColors = ['#293462', '#00818a', '#ec9b3b', '#f7be16'];
 
 //var logic
 $categories = get_the_category( $post->ID );
-$style = 'style="';
-if(get_the_post_thumbnail_url()){
-    $style .= 'background-image: url('. get_the_post_thumbnail_url() .');"';
-}else{
-    $color = $backgroundColors[mt_rand(0, count($backgroundColors) - 1)];
-    $style .= 'background: '. $color.'; background-image:url('.get_template_directory_uri().'/assets/dist/imgs/bedge-grunge.png);"'; 
-}
+
+$background = get_the_post_thumbnail_url();
+$title = get_the_title();
 // variables
 $vars = [
     'description' => get_field('description'),
@@ -30,25 +25,7 @@ $vars = [
 ?>
 
 <div class="main recipe">
-    <div class="hero" <?php echo $style?>>
-        <div class="container">
-            <div class="hero__content">
-                <div class="hero__categories"><?php 
-                //category loop
-                foreach($categories as $cat){?>
-                <a href="<?php echo get_term_link( $cat ) ?>"><?php echo $cat->cat_name ?></a>
-                <?php
-                }
-                ?>
-                </div>
-                <h1><?php the_title() ?></h1>
-                <?php if($vars['author']): ?>
-                <p class="hero__author">By: <?php echo $vars['author'] ?></p>
-                <?php endif; ?>
-                <p><?php echo $vars['description'] ?></p>
-            </div>
-        </div>
-    </div>
+    <?php include('template-parts/blocks/hero-background.php')?>
 	<div class="container">
         <div class="stats">
                 <?php if($vars['serves']): ?>

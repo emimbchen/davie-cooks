@@ -9,14 +9,17 @@ $args = array(
     'post_type' => 'recipes',
     'cat'=> $category->term_id
 );
+$title = single_cat_title('', false);
+$background = get_field('image', $category->taxonomy . '_' . $category->term_id)['url'];
+$categories = null;
+$vars['author'] = null;
+$vars['description'] = null;
 $query = new WP_Query( $args );
 ?>
 
 <div class="main recipes">
+    <?php include('template-parts/blocks/hero-background.php')?>
 	<div class="container">
-         <div class="title">
-            <h1><?php single_cat_title(); ?></h1>
-         </div>
         <div id="recipe-results">        
         <?php
         // The Loop

@@ -1,10 +1,12 @@
 <?php 
     $cats = wp_get_post_categories($post_id);
+    $backgroundColors = ['#293462', '#00818a', '#ec9b3b', '#f7be16'];
+
 ?>
 
     <article class="recipeCard">
         <a href="<?php the_permalink() ?>">
-            <div class="img-wrap">
+            <div class="img-wrap <?php echo !get_the_post_thumbnail($post_id, 'large') ? 'no-background' : '' ?>" style="background-color:<?php echo !get_the_post_thumbnail($post_id, 'large') ? $backgroundColors[rand(0,3)] : '' ?>">
                 <?php the_post_thumbnail($post_id, 'large') ?>
             </div>
         </a>
