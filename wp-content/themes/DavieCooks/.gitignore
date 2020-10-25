@@ -24,6 +24,7 @@ node_modules/*
 
 
 ### WordPress ###
+!wp-content/
 # */wp-config.php
 */wp-content/advanced-cache.php
 */wp-content/wp-cache-config.php
